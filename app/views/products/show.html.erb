@@ -1,2 +1,15 @@
-<h1>Products#update</h1>
-<p>Find me in app/views/products/update.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-4 shadow mt-4">
+      <h1> <%= @product.title %></h1>
+      <p>Price: <%= @product.price %></p>
+      <%= image_tag "https://shorturl.at/ShFaW", width: "200" %>
+      <p>Category: <%= @product.category %></p>
+      <p>Description: <%= @product.description %></p>
+      <p>Available: <%= @product.stock %></p>
+    </div>
+  </div>
+<%= link_to "Back to home", products_path %>
+<%# <%= link_to "Buy now", sales_path %>
+
+</div>
