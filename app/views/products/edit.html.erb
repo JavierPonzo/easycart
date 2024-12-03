@@ -1,2 +1,19 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<div class="container">
+  <h1>Edit Product</h1>
+  <div class="row">
+  <div class="col-12 shadow mt-4 p-4">
+
+    <%= simple_form_for @product do |f| %>
+      <%= f.input :title %>
+      <%= f.input :price %>
+      <%= f.input :category %>
+      <%= f.input :stock %>
+      <%= f.input :description %>
+      <%= f.submit "Update Product", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
+</div>
+<div class="back text-center mt-4">
+  <%= link_to 'Back to Product', product_path(@product), class: 'btn btn-secondary' %>
+</div>
