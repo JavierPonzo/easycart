@@ -1,2 +1,32 @@
 <h1>Products#new</h1>
 <p>Find me in app/views/products/new.html.erb</p>
+
+<h1>New Product</h1>
+
+<%= simple_form_for(@product) do |f| %>
+  <div>
+    <%= f.input :title, label: "Title" %>
+  </div>
+
+  <div>
+    <%= f.input :price, label: "Price" %>
+  </div>
+
+  <div>
+    <%= f.input :category, label: "Category" %>
+  </div>
+
+  <div>
+    <%= f.input :description, label: "Description" %>
+  </div>
+
+  <div>
+    <%= f.input :stock, label: "Stock", input_html: { min: 0 }, hint: "Enter the number of items available." %>
+  </div>
+
+  <div>
+    <%= f.submit "Create Product", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Products', products_path, class: "btn btn-secondary" %>
