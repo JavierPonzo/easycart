@@ -1,3 +1,6 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://admin.brands.com//brand/1666931040230-easycart1440.jpg
+);">
+</div>
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-black">
     <h1> All Products </h1>
@@ -7,7 +10,9 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">My Products</h3>
-    <%= link_to "Create a product", new_product_path, class: "btn btn-flat" %>
+    <% if user_signed_in? %>
+      <%= link_to "Create a product", new_product_path, class: "btn btn-flat" %>
+    <% end %>
   </div>
   <div class="row">
     <% @products.each do |product| %>
@@ -17,8 +22,9 @@
             <%= product.title %>
             <%= product.price %>
           </div>
-        <%end%>
+        <% end %>
       </div>
-    <%end%>
-  </div>
+    <% end %>
+  </div>  
+</div>
 </div>

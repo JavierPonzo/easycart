@@ -28,15 +28,18 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update(product_params)
-    redirect_to product_path(@product)
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @product.destroy
     redirect_to products_path
   end
-
+  
   private
 
   def set_product
