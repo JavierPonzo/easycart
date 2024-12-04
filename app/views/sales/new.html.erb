@@ -1,2 +1,18 @@
-<h1>Sales#new</h1>
-<p>Find me in app/views/sales/new.html.erb</p>
+<div class="container mt-5">
+  <h1>Información de la Tarjeta</h1>
+  <%= simple_form_for :card, url: "#" do |f| %>
+    <div class="mb-3">
+      <%= f.input :card_number, label: "Card Number", input_html: { placeholder: "1234 5678 9012 3456" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :expiration_date, label: "Expire Date", input_html: { placeholder: "MM/AA" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.input :cvv, label: "CVV", input_html: { placeholder: "123" } %>
+    </div>
+
+    <%= f.button :submit, "Submit", class: "btn btn-success" %>
+  <% end %>
+</div>
