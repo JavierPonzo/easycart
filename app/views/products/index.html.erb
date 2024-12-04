@@ -7,7 +7,9 @@
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">My Products</h3>
-    <%= link_to "Create a product", new_product_path, class: "btn btn-flat" %>
+    <% if user_signed_in? %>
+      <%= link_to "Create a product", new_product_path, class: "btn btn-flat" %>
+    <% end %>
   </div>
   <div class="row">
     <% @products.each do |product| %>
@@ -17,8 +19,9 @@
             <%= product.title %>
             <%= product.price %>
           </div>
-        <%end%>
+        <% end %>
       </div>
-    <%end%>
-  </div>
+    <% end %>
+  </div>  
+</div>
 </div>
