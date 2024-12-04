@@ -19,6 +19,10 @@
   <div>
     <%= f.input :description, label: "Description" %>
   </div>
+  
+  <div>
+  <%= f.input :photos, as: :file, input_html:{multiple: true} %>
+  </div>
 
   <div>
     <%= f.input :stock, label: "Stock", input_html: { min: 0 }, hint: "Enter the number of items available." %>

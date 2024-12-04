@@ -9,6 +9,7 @@
       <%= f.input :category %>
       <%= f.input :stock %>
       <%= f.input :description %>
+      <%= f.input :photos, as: :file, input_html:{multiple: true} %>
       <%= f.submit "Update Product", class: 'btn btn-success' %>
     <% end %>
   </div>

@@ -3,7 +3,9 @@
     <div class="col-4 shadow mt-4">
       <h1> <%= @product.title %></h1>
       <p>Price: <%= @product.price %></p>
-      <%= image_tag "https://shorturl.at/ShFaW", width: "200" %>
+      <% @product.photos.each do |photo| %>
+      <%= image_tag photo, width: "200" %>
+      <% end %>
       <p>Category: <%= @product.category %></p>
       <p>Description: <%= @product.description %></p>
       <p>Available: <%= @product.stock %></p>
