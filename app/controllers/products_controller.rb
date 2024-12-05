@@ -40,6 +40,10 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def my_products
+    @products = current_user.products
+  end
+
   private
 
   def set_product
