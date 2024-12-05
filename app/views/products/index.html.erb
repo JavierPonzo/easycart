@@ -15,11 +15,16 @@
   </div>
   <div class="row">
     <% @products.each do |product| %>
-      <div class="co-12 col-sm-6 col-md-4 mb-3">
-        <%= link_to product_path(product), class:"text-decoration-none text-dark" do %>
+      <div class="col-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
           <div class="card-category">
-            <%= product.title %>
-            <%= product.price %>
+            <div class="card-img">
+              <%= image_tag product&.photos&.first if product.photos.present? %>
+            </div>
+            <div>
+              <%= product.title %><br>
+              <%= product.price %>
+            </div>
           </div>
         <% end %>
       </div>
