@@ -63,6 +63,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_04_185200) do
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.integer "price"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_sales_on_product_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,4 +93,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_04_185200) do
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
+  add_foreign_key "sales", "products"
+  add_foreign_key "sales", "users"
 end
