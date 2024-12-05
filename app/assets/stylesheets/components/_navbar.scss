@@ -9,8 +9,11 @@
   }
 
   .navbar-brand img {
-    width: 200px;
-    max-height: 50px;
+    width: auto; /* Ocupa el tamaño máximo permitido */
+    max-height: 100px; /* Limita la altura */
+    object-fit: contain; /* Evita distorsión */
+    transform: scale(1.3); /* Amplía el logo dentro del contenedor */
+    transform-origin: center;
   }
 
   .navbar-toggler {
