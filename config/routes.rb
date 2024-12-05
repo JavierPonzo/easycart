@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "products#index"
   get 'about', to: 'pages#about'
-  get 'my_products', to: 'pages#my_products'
+  get 'my_products', to: 'products#my_products'
   get 'confirm', to: 'pages#confirm', as: :confirm
   resources :products
   resources :sales
