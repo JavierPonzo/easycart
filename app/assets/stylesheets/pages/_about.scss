@@ -1,3 +1,13 @@
+// Graphical variables for colors and fonts
+$primary-color: #3498db; // You can replace with your primary color
+$secondary-color: #2c3e50; // You can replace with your secondary color
+$light-bg: #ecf0f1;
+$border-radius: 8px;
+
+$font-family: 'Arial', sans-serif;
+$heading-font-family: 'Helvetica', sans-serif;
+
+// Banner Styles
 .banner {
   background-size: cover;
   background-position: center;
@@ -7,7 +17,7 @@
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 32px;
   font-weight: bold;
 }
@@ -16,17 +26,10 @@
   font-size: 20px;
   color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-$primary-color: #3498db;
-$secondary-color: #2c3e50;
-$light-bg: #ecf0f1;
-$border-radius: 8px;
-
-$font-family: 'Arial', sans-serif;
-$heading-font-family: 'Helvetica', sans-serif;
-
+// About Page Container
 .about-container {
   background-color: $light-bg;
   padding: 40px;
@@ -95,6 +98,7 @@ blockquote footer {
   color: $primary-color;
 }
 
+// Primary Button Styles
 .btn-primary {
   background-color: $primary-color;
   color: white;
@@ -111,6 +115,7 @@ blockquote footer {
   }
 }
 
+// Contact Info Styles
 .contact-info {
   margin-top: 40px;
   padding: 20px;
@@ -139,6 +144,7 @@ blockquote footer {
   }
 }
 
+// Team List Styles
 .team-list {
   display: flex;
   flex-wrap: wrap;
@@ -169,6 +175,7 @@ blockquote footer {
   }
 }
 
+// Responsive Design for Mobile Devices
 @media (max-width: 768px) {
   .about-container {
     padding: 20px;
