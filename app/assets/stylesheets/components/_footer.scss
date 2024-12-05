@@ -3,24 +3,36 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 10px 20px;
-  background-color: aquamarine;
-}
+  padding: 20px;
+  background-color: $navy-blue; // Navy blue background color
+  color: $light-cream; // Light cream text color
 
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
+  .social-icons {
+    display: flex;
+    gap: 15px;
 
-.footer-info {
-  text-align: right;
-}
+    a {
+      color: $light-cream; // Light cream icons
+      font-size: 20px;
+      transition: color 0.3s ease;
 
-.footer-info .copyright {
-  font-size: 14px;
-  margin-bottom: 5px;
-}
+      &:hover {
+        color: $taupe; // Taupe hover effect
+      }
+    }
+  }
 
-.footer-info .rights {
-  font-size: 12px;
+  .footer-info {
+    text-align: right;
+
+    .copyright {
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .rights {
+      font-size: 12px;
+      font-style: italic;
+    }
+  }
 }
