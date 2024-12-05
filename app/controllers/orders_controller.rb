@@ -21,6 +21,10 @@ class OrdersController < ApplicationController
     end
   end
 
+  def my_orders
+    @orders = current_user.orders
+  end
+
   private
 
   def set_product

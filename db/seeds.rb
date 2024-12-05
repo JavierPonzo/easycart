@@ -47,16 +47,6 @@ product = Product.create!(title: "Home Security Camera", price: 149, description
 product.photos.attach(io: file, filename: "HomeSecurity.png", content_type: "image/png")
 product.save
 
-file = URI.parse("https://cdn.thewirecutter.com/wp-content/media/2023/06/airpurifiers-2048px-00641.jpg?auto=webp&quality=75&width=1024").open
-product = Product.create!(title: "Air Purifier", price: 199, description: "Quiet and efficient air purifier for a healthier living space.", user: User.all.sample, stock: 50, category: "Home Appliances")
-product.photos.attach(io: file, filename: "AirPurifier.png", content_type: "image/png")
-product.save
-
-file = URI.parse("https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/tottusPE/42115307_1/w=1500,h=1500,fit=pad").open
-product = Product.create!(title: "Yoga Mat", price: 29, description: "Non-slip yoga mat with extra cushioning for comfort.", user: User.all.sample, stock: 200, category: "Fitness")
-product.photos.attach(io: file, filename: "YogaMat.png", content_type: "image/png")
-product.save
-
 file = URI.parse("https://images-cdn.ubuy.co.in/6542c4a582dcf81896144baf-hp-victus-15-6-fhd-144hz-gaming-laptop.jpg").open
 product = Product.create!(title: "Victus Pro Gamming", price: 999, description: "HP Victus Gaming Laptop[Windows 11 Pro], 15 15.6 FHD IPS 144Hz Display, 6-Core AMD Ryzen 5 7535HS, 16GB DDR5 RAM, 1TB SSD, GeForce RTX 2050, Backlit KB, Numeric Pad, Wi-Fi 6, BT 5.3, RJ45, w/Battery.", user: User.all.sample, stock: 200, category: "Fitness")
 product.photos.attach(io: file, filename: "victusPro.png", content_type: "image/png")
