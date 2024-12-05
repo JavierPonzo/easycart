@@ -1,0 +1,65 @@
+$primary-color: #2A3663;
+$secondary-color: #f8f9fa;
+$highlight-color: #f8f9fa;
+$text-color: #ffffff;
+$border-radius: 12px; 
+$btn-hover-color: #0056b3; // 
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.card {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+  .card-body {
+    background-color: $primary-color;
+    color: $text-color;
+    padding: 30px;
+    border-radius: $border-radius;
+    text-align: center;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      color: #ffffff;
+    }
+
+    strong {
+      color: $highlight-color;
+    }
+  }
+}
+
+.btn-light {
+  background-color: $secondary-color;
+  color: $primary-color;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: $border-radius;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: $btn-hover-color;
+    color: $text-color;
+  }
+}

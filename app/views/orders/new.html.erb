@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h1>Información de la Tarjeta</h1>
+  <%= form_with url: product_orders_path(@product), method: :post do |f| %>
+    <div class="mb-3">
+      <%= f.text_field :card_number, label: "Card Number", input_html: { placeholder: "1234 5678 9012 3456" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.text_field :expiration_date, label: "Expire Date", input_html: { placeholder: "MM/AA" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.text_field :cvv, label: "CVV", input_html: { placeholder: "123" } %>
+    </div>
+
+  <%= f.submit 'Buy now', class: "btn btn-secondary" %>
+
+  <% end %>
+
+</div>
