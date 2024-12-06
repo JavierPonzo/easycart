@@ -46,6 +46,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def my_products
+      @products = current_user.products
+  end
+
   private
 
   def set_product
