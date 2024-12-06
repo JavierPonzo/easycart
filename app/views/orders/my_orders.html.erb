@@ -1,0 +1,16 @@
+<h1>My Orders</h1>
+
+<div class="row">
+  <% @orders.each do |order| %>
+    <div class="col-12">
+      <%= link_to product_path(order.product) do %>
+        <div class="card-category">
+          <h5><%= order.product.title %></h5>
+          <p><%= order.product.price %></p>
+          <%= cl_image_tag order.product.photos.first.key if order.product.photos.attached?  %>
+
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

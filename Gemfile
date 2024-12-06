@@ -5,6 +5,7 @@ ruby "3.3.5"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.5"
 
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -26,6 +27,8 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "cloudinary"
+gem "dotenv-rails"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -52,7 +55,6 @@ gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "dotenv-rails"
 group :development, :test do
-  
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
 end
@@ -73,4 +75,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-

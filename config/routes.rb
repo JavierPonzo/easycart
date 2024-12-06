@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root "products#index"
   get 'about', to: 'pages#about'
   get 'my_products', to: 'products#my_products'
+  get 'my_orders', to: 'orders#my_orders'
   get 'confirm', to: 'pages#confirm', as: :confirm
   resources :products, shallow: true do
     resources :orders, only: [:create, :new]
