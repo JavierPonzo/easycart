@@ -19,31 +19,16 @@
             <%= f.input_field :category, class: "form-control border-success border-2", placeholder: "Enter product category" %>
           </div>
 
-  <div>
-    <%= f.input :description, label: "Description" %>
-  </div>
+          <div class="mb-3">
+            <%= f.label :stock, "Stock Quantity", class: "form-label fw-bold" %>
+            <%= f.input_field :stock, class: "form-control border-success border-2", placeholder: "Enter stock quantity" %>
+          </div>
 
-  <div>
-  <%= f.input :photos, as: :file, input_html:{multiple: true} %>
-  </div>
-    <div class="mb-3">
-      <%= f.label :stock, "Stock Quantity", class: "form-label fw-bold" %>
-      <%= f.input_field :stock, class: "form-control border-success border-2", placeholder: "Enter stock quantity" %>
-    </div>
+          <div class="mb-3">
+            <%= f.label :description, "Description", class: "form-label fw-bold" %>
+            <%= f.text_area :description, class: "form-control border-success border-2", rows: 3, placeholder: "Enter product description" %>
+          </div>
 
-    <div class="mb-3">
-      <%= f.label :description, "Description", class: "form-label fw-bold" %>
-      <%= f.text_area :description, class: "form-control border-success border-2", rows: 3, placeholder: "Enter product description" %>
-    </div>
-
-  <div>
-    <%= f.input :quality_score, label: "Quality (1 to 10)", as: :select, collection: (1..10).to_a, include_blank: false %>
-  </div>
-
-  <div>
-    <%= f.submit "Create Product", class: "btn btn-primary" %>
-  </div>
-<% end %>
           <div class="mb-3">
             <%= f.label :photos, "Upload Photos", class: "form-label fw-bold" %>
             <%= f.input_field :photos, type: :file, class: "form-control border-success border-2", multiple: true %>
