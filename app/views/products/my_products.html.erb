@@ -1,33 +1,42 @@
-<h1 class="mb-4">My Products</h1>
+<h1 class="mb-4 text-center text-primary display-4 font-weight-bold text-shadow">My Products</h1>
 
-<%= link_to 'Create New Product', new_product_path, class: "btn btn-primary mb-4" %>
+<div class="d-flex justify-content-center mb-4">
+  <%= link_to 'Create New Product', new_product_path, class: "btn btn-primary btn-sm px-4 py-2 rounded-pill shadow-sm" %>
+</div>
 
-<div class="row">
+<div class="row container" style="margin: 0 auto;">
   <% @products.each do |product| %>
-    <div class="col-md-4 mb-4">
-      <div class="card h-100 shadow-sm">
+    <div class="col-3 mb-4">
+      <div class="card shadow-lg border-light">
 
         <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
 
           <div class="card-body">
-            <h5 class="card-title"><%= product.title %></h5>
-            <p class="card-text"><%= number_to_currency(product.price) %></p>
+            <h5 class="card-title text-center text-uppercase font-weight-bold"><%= product.title %></h5>
+
+            <div class="d-flex justify-content-center">
+              <%= cl_image_tag product.photos.first.key, crop: :fit, width: 200, height: 200, class: "rounded" if product.photos.attached?  %>
+            </div>
+
+            <div class="text-center mt-3">
+              <p class="card-text">Price: <%= number_to_currency(product.price) %></p>
+              <p class="card-text">Stock: <%= product.stock %></p>
+            </div>
           </div>
 
-          <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+          <div class="card-footer bg-light d-flex justify-space-between">
+            <div class="btn-group" role="group">
+              <%= link_to edit_product_path(product), class: 'btn btn-warning btn-sm' do %>
+                Edit
+              <% end %>
+            </div>
 
-
-            <%= link_to edit_product_path(product), class: 'btn btn-warning btn-sm' do %>
-              Edit
-            <% end %>
-
-
-            <%= link_to "Delete", product_path(product),
-                data: { turbo_method: :delete,
-                        turbo_confirm: "Are you sure you want to remove #{product.title} from your list?" },
+            <div class="btn-group" role="group">
+              <%= link_to "Delete", product_path(product),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{product.title} from your list?" },
                 class: "btn btn-danger btn-sm" %>
+            </div>
           </div>
-
         <% end %>
       </div>
     </div>
