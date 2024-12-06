@@ -1,24 +1,44 @@
 .card-category {
-  background-size: cover;
-  background-position: center;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: rgb(12, 12, 12);
-  font-size: 20px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
   text-align: center;
 }
 
+.card-category:hover {
+  background-color: #B1F0F7;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
 .card-img img {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card-img img:hover {
+  transform: scale(1.1);
+}
+
+.card-category h4, .card-category p {
+  margin: 10px 0;
+  color: #333;
+}
+
+.card-category p {
+  font-size: 16px;
+  color: #666;
+}
+
+.quality-score {
+  font-size: 14px;
+  color: #444;
+  margin-top: 10px;
+  font-weight: bold;
 }

@@ -7,26 +7,22 @@
     </div>
   </div>
 <div class="container py-5">
-    <div class="d-flex align-items-center justify-content-between mb-3">
-    </div>
-    <div class="row">
-      <% @products.each do |product| %>
-        <div class="col-12 col-sm-6 col-md-4 mb-3">
-          <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
-            <div class="card-category">
-              <div class="card-img">
-                <%= image_tag product&.photos&.first if product.photos.present? %>
-              </div>
-              <div>
-                <%= product.title %><br>
-                <%= product.price %>
-              </div>
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
+          <div class="card-category">
+            <div class="card-img">
+              <%= image_tag product&.photos&.first if product.photos.present? %>
             </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-</div>
+            <h4><%= product.title %></h4>
+            <p><strong>Price:</strong> <%= number_to_currency(product.price, unit: "$") %></p>
+
+            <p><strong>Quality:</strong> <%= product.quality_score %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 
     <h2 class="text-center mb-4">What Our Customers Say</h2>
     <p class="text-center mb-4">
@@ -60,8 +56,4 @@
         </div>
     </div>
   </div>
-
-
-
-  </div>
-  </div>
+</div>

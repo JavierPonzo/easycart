@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
   end
 
   def my_products
-    @products = current_user.products
+      @products = current_user.products
   end
 
   private
@@ -57,6 +57,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :price, :category, :stock, :description, :user_id, photos:[])
+    params.require(:product).permit(:title, :price, :category, :stock, :description, :user_id, :quality_score, photos:[])
   end
 end
