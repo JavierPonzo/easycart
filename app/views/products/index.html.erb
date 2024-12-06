@@ -1,11 +1,11 @@
-<div class="banner" style="background-image: url(https://i.ibb.co/kQqNZCV/y2020-03-11-03-generated.jpg);">
-</div>
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-black">
-    <h1> All Products </h1>
-      <h3 class="typed-js" data-controller="typed-js"></h3>
+  <div class="banner" style="background-image: url(https://i.ibb.co/kQqNZCV/y2020-03-11-03-generated.jpg);">
   </div>
-</div>
+  <div class="cover mb-4 d-flex align-items-center justify-content-center">
+    <div class="text-center text-black mt-5">
+      <h1> All Products </h1>
+        <h3 class="typed-js" data-controller="typed-js"></h3>
+    </div>
+  </div>
 <div class="container py-5">
   <div class="row">
     <% @products.each do |product| %>
@@ -23,6 +23,37 @@
         <% end %>
       </div>
     <% end %>
+
+    <h2 class="text-center mb-4">What Our Customers Say</h2>
+    <p class="text-center mb-4">
+      We love hearing from our customers. Here's what they have to say about their EasyCart experience:
+    </p>
+
+      <div class="d-flex justify-space-between">
+        <div class="max-width-400">
+          <blockquote class="blockquote text-center">
+            <p class="mb-3">
+              "EasyCart made shopping online so much easier! The products are top-quality and delivery was quick. Highly recommended!"
+            </p>
+            <footer class="blockquote-footer mt-3">Sarah Mendoza</footer>
+          </blockquote>
+        </div>
+        <div class="max-width-400">
+          <blockquote class="blockquote text-center">
+            <p class="mb-3">
+              "A fantastic platform! Great deals and an even better customer support team."
+            </p>
+            <footer class="blockquote-footer mt-3">Carla Martin</footer>
+          </blockquote>
+        </div>
+        <div class="max-width-400">
+          <blockquote class="blockquote text-center">
+            <p class="mb-3">
+              "EasyCart has transformed my shopping experience. The convenience and quality are unbeatable!"
+            </p>
+            <footer class="blockquote-footer mt-3">James Parker</footer>
+          </blockquote>
+        </div>
+    </div>
   </div>
-</div>
 </div>

@@ -1,16 +1,34 @@
-<h1>My Products</h1>
-
-<%= link_to 'Create New Product', new_product_path, class: "btn btn-primary" %>
-
-<div class="row">
+<h1 class="mb-4 text-center text-primary display-4 font-weight-bold text-shadow">My Products</h1>
+<div class="d-flex justify-content-center mb-4">
+  <%= link_to 'Create New Product', new_product_path, class: "btn btn-success btn-sm px-4 py-2 rounded-pill shadow-sm" %>
+</div>
+<div class="row container align-items-start" style="margin: 0 auto;">
   <% @products.each do |product| %>
-    <div class="col-12">
-      <%= link_to product_path(product) do %>
-        <div class="card-category">
-          <h5><%= product.title %></h5>
-          <p><%= product.price %></p>
+    <div class="col-md-4 col-lg-3 mb-4">
+      <div class="card shadow-lg border-light h-100">
+        <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
+          <div class="card-body">
+            <div class="d-flex justify-content-center mb-3">
+              <%= cl_image_tag product.photos.first.key, crop: :fit, width: 200, height: 200, class: "rounded img-fluid" if product.photos.attached? %>
+            </div>
+            <h5 class="card-title text-center text-uppercase font-weight-bold">
+              <%= product.title %>
+            </h5>
+            <div class="text-center mt-3">
+              <p class="card-text mb-1">Price: <%= number_to_currency(product.price) %></p>
+              <p class="card-text mb-1">Stock: <%= product.stock %></p>
+            </div>
+          </div>
+        <% end %>
+        <div class="card-footer bg-light d-flex justify-content-between">
+          <%= link_to edit_product_path(product), class: 'btn btn-warning btn-sm shadow-sm px-3' do %>
+            Edit
+          <% end %>
+          <%= link_to "Delete", product_path(product),
+            data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{product.title}?" },
+            class: "btn btn-danger btn-sm shadow-sm px-3" %>
         </div>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </div>

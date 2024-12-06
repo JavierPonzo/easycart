@@ -1,18 +1,29 @@
 <div class="container">
-  <div class="row">
-    <div class="col-4 shadow mt-4">
-      <h1> <%= @product.title %></h1>
-      <p>Price: <%= @product.price %></p>
-      <% @product.photos.each do |photo| %>
-      <%= image_tag photo, width: "200" %>
-      <% end %>
-      <p>Category: <%= @product.category %></p>
-      <p>Description: <%= @product.description %></p>
-      <p>Available: <%= @product.stock %></p>
+  <div class="row justify-content-center">
 
+    <div class="col-md-12 col-lg-12 shadow-sm mt-4 p-4 rounded">
+      <h1 class="mb-3"><%= @product.title %></h1>
+
+      <p class="h4 price-color">Price: <%= number_to_currency(@product.price) %></p>
+      <div class="d-flex">
+        <div class="mb-4">
+        <% @product.photos.each do |photo| %>
+          <%= image_tag photo, class: "img-fluid mb-4 ms-3 me-3", alt: @product.title %>
+        <% end %>
+        </div>
+        <div>
+          <p class="mb-4"><strong>Category:</strong> <%= @product.category %></p>
+
+          <p class="mb-4"><strong>Description:</strong> <%= @product.description %></p>
+
+          <p class="mb-4"><strong>Stock:</strong> <%= @product.stock %> items</p>
+
+          <div class="d-flex justify-content-between mt-4">
+            <%= link_to "Back to Home", products_path, class: "btn btn-outline-primary" %>
+            <%= link_to 'Buy Now', new_product_order_path(@product), class: "btn btn-secondary" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-<%= link_to "Back to home", products_path %>
-  <%= link_to 'Buy now', new_product_order_path(@product), class: "btn btn-secondary" %>
-
 </div>
