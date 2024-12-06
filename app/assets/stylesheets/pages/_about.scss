@@ -9,9 +9,10 @@ $heading-font-family: 'Helvetica', sans-serif;
 
 // Banner Styles
 .banner {
-  background-size: cover;
-  background-position: center;
+  background: round;
   padding: 150px 0;
+  background-size: cover;
+  height: 400px;
 }
 
 .banner h1 {
