@@ -19,13 +19,17 @@
   <div>
     <%= f.input :description, label: "Description" %>
   </div>
-  
+
   <div>
   <%= f.input :photos, as: :file, input_html:{multiple: true} %>
   </div>
 
   <div>
     <%= f.input :stock, label: "Stock", input_html: { min: 0 }, hint: "Enter the number of items available." %>
+  </div>
+
+  <div>
+    <%= f.input :quality_score, label: "Quality (1 to 10)", as: :select, collection: (1..10).to_a, include_blank: false %>
   </div>
 
   <div>

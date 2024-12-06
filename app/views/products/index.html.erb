@@ -7,12 +7,6 @@
   </div>
 </div>
 <div class="container py-5">
-  <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Products</h3>
-    <% if user_signed_in? %>
-      <%= link_to "Create a product", new_product_path, class: "btn btn-flat" %>
-    <% end %>
-  </div>
   <div class="row">
     <% @products.each do |product| %>
       <div class="col-12 col-sm-6 col-md-4 mb-3">
@@ -21,10 +15,10 @@
             <div class="card-img">
               <%= image_tag product&.photos&.first if product.photos.present? %>
             </div>
-            <div>
-              <%= product.title %><br>
-              <%= product.price %>
-            </div>
+            <h4><%= product.title %></h4>
+            <p><strong>Price:</strong> <%= number_to_currency(product.price, unit: "$") %></p>
+
+            <p><strong>Quality:</strong> <%= product.quality_score %></p>
           </div>
         <% end %>
       </div>
