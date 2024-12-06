@@ -6,12 +6,11 @@
       <h3 class="typed-js" data-controller="typed-js"></h3>
   </div>
 </div>
+    <% if user_signed_in? %>
+      <%= link_to "Create a product", new_product_path, class: "btn btn-flat text-center" %>
+    <% end %>
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
-    <h3 class="mb-0">My Products</h3>
-    <% if user_signed_in? %>
-      <%= link_to "Create a product", new_product_path, class: "btn btn-flat" %>
-    <% end %>
   </div>
   <div class="row">
     <% @products.each do |product| %>

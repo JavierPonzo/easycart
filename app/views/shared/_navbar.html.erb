@@ -15,6 +15,9 @@
           <li class="nav-item active">
             <%= link_to "My Products", my_products_path, class: "nav-link" %> <!-- Link to homepage -->
           </li>
+          <li>
+          <%= link_to "My Orders", my_orders_path, class: "nav-link" %>
+          </li>
           <li class="nav-item">
             <%= link_to "About", about_path, class: "nav-link" %> <!-- Link to about -->
           </li>
@@ -23,8 +26,7 @@
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%#= link_to "Action", action_path, class: "dropdown-item" %> <!-- Replace action_path with actual route -->
-              <%#= link_to "Another action", another_action_path, class: "dropdown-item" %> <!-- Replace another_action_path with actual route -->
+              <%#= link_to "Action", action_path, class: "dropdown-item" %> <!-- Replace action_path with actual route --> <!-- Link to homepage -->
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %> <!-- Link to log out -->
             </div>
           </li>

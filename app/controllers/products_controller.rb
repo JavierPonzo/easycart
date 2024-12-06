@@ -36,8 +36,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-    redirect_to products_path
+    if @product.orders.any?
+      flash[:alert] = "Este producto no puede eliminarse porque está asociado con un pedido."
+      redirect_to my_products_path
+    else
+      @product.destroy
+      flash[:notice] = "Producto eliminado correctamente."
+      redirect_to my_products_path
+    end
   end
 
   def my_products
