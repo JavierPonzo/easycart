@@ -5,10 +5,10 @@
       <h1 class="mb-3"><%= @product.title %></h1>
 
       <p class="h4 price-color">Price: <%= number_to_currency(@product.price) %></p>
-      <div class="d-flex">
+      <div class="d-flex justify-align-items">
         <div class="mb-4">
         <% @product.photos.each do |photo| %>
-          <%= image_tag photo, class: "img-fluid mb-4 ms-3 me-3", alt: @product.title %>
+          <%= image_tag photo, class: "img-fluid mb-4 ms-3 me-3", width: 200, height: 200, alt: @product.title %>
         <% end %>
         </div>
         <div>
