@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    
   end
 
   def new

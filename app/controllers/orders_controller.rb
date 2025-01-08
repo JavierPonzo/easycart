@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_product, only: [:new, :create]
-  before_action :set_order, only: [:show, :create, :create_checkout_session, :payment_success]
+  # before_action :set_order, only: [:show, :create, :create_checkout_session, :payment_success]
+  before_action :set_order, only: [:show, :payment_success, :payment_cancel]
 
   def index
     @orders = current_user.orders
@@ -30,7 +31,8 @@ class OrdersController < ApplicationController
   end
 
   def create_checkout_session
-    product = @order.product
+    product = Product.find(params[:product_id]) # Encuentra el producto
+    @order = Order.create(user: current_user, product: product) # Crea la orden
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -58,7 +60,7 @@ class OrdersController < ApplicationController
     product = @order.product
     if product.stock.positive?
       product.update(stock: product.stock - 1)
-      @order.update(status: "completed")
+      # @order.update(status: "completed") #GON
       flash[:notice] = "Payment successful. Thank you."
     else
       flash[:alert] = "Payment unsuccessful, please try again."
@@ -82,6 +84,6 @@ class OrdersController < ApplicationController
   end
 
   def set_order
-    @order = Order.find(params[:id])
+    @order = Order.find(params[:id]) if params[:id].present?
   end
 end
