@@ -20,7 +20,10 @@
 
           <div class="d-flex justify-content-between mt-4">
             <%= link_to "Back to Home", products_path, class: "btn btn-outline-primary" %>
-            <%= link_to 'Buy Now', new_product_order_path(@product), class: "btn btn-secondary" %>
+            <%= button_to "Buy Now", create_checkout_session_order_path(@order),
+               method: :post,
+               data: { turbo: false },
+               class: "btn btn-primary" %>
           </div>
         </div>
       </div>
