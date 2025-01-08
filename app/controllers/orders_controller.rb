@@ -60,7 +60,6 @@ class OrdersController < ApplicationController
     product = @order.product
     if product.stock.positive?
       product.update(stock: product.stock - 1)
-      # @order.update(status: "completed") #GON
       flash[:notice] = "Payment successful. Thank you."
     else
       flash[:alert] = "Payment unsuccessful, please try again."
