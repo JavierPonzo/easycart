@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_product, only: [:new, :create]
-  before_action :set_order, only: [:show, :create_checkout_session, :payment_success]
+  before_action :set_order, only: [:show, :create, :create_checkout_session, :payment_success]
 
   def index
     @orders = current_user.orders
@@ -24,7 +24,8 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to create_checkout_session_order_path(@order)
     else
-      render :new, status: :unprocessable_entity
+      flash[:alert] = 'There was a problem creating your order. Please try again.'
+      redirect_to product_path(@order)
     end
   end
 
