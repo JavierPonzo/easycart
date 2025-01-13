@@ -1,5 +1,7 @@
+Order.destroy_all
 Product.destroy_all
 User.destroy_all
+
 User.create!(email: "bryan@gmail.com", password: "123456")
 User.create!(email: "javier@gmail.com", password: "123456")
 User.create!(email: "johnny@gmail.com", password: "123456")
