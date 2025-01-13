@@ -13,15 +13,6 @@ $btn-hover-color: #0056b3; //
 //   background-color: #f0f2f5;
 // }
 
-.container {
-  min-height: calc(100vh - 60px); /* Adjust for header + footer */
-  display: flex;
-  flex-direction: column;
-}
-
-footer {
-  margin-top: auto; /* Push the footer to the bottom */
-}
 
 html, body {
   height: 100%;
