@@ -5,7 +5,13 @@
         <div class="carousel-inner">
           <% @product.photos.each_with_index do |photo, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
-              <%= image_tag url_for(photo), class: "d-block w-100 rounded", alt: @product.title %>
+              <%= cl_image_tag(@product.photos.first.key,
+                 width: 500,
+                 height: 600,
+                 crop: "fit",
+                 class: "d-block w-100 rounded",
+                 alt: @product.title) if @product.photos.attached? %>
+
             </div>
           <% end %>
         </div>
@@ -23,12 +29,12 @@
     <div class="col-md-6 right-column">
       <div class="product-description">
         <h1 class="product-title"><%= @product.title %></h1>
-        <p class="product-price">Price: <%= number_to_currency(@product.price) %></p>
-        <p class="product-category"><strong>Category:</strong> <%= @product.category %></p>
-        <p class="product-description-text"><strong>Description:</strong> <%= @product.description %></p>
-        <p class="product-stock"><strong>Stock:</strong> <%= @product.stock %> items</p>
+        <p class="product-price mt-3">Price: <%= number_to_currency(@product.price) %></p>
+        <p class="product-category mt-3"><strong>Category:</strong> <%= @product.category %></p>
+        <p class="product-description-text mt-3"><strong>Description:</strong> <%= @product.description %></p>
+        <p class="product-stock mt-3"><strong>Stock:</strong> <%= @product.stock %> items</p>
       </div>
-      <div class="product-actions">
+      <div class="product-actions mt-5 mb-5">
         <%= button_to "Buy Now", create_checkout_session_order_path(product_id: @product.id),
                      method: :post,
                      data: { turbo: false },
