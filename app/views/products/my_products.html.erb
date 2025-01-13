@@ -9,7 +9,7 @@
         <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
           <div class="card-body">
             <div class="d-flex justify-content-center mb-3">
-              <%= cl_image_tag product.photos.first.key, crop: :fit, width: 200, height: 200, class: "rounded img-fluid" if product.photos.attached? %>
+              <%= cl_image_tag product.photos.first.key, crop: :fit, width: 220, height: 220, class: "rounded img-fluid" if product.photos.attached? %>
             </div>
             <h5 class="card-title text-center text-uppercase font-weight-bold">
               <%= product.title %>

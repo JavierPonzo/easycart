@@ -13,12 +13,16 @@
         <%= link_to product_path(product), class: "text-decoration-none text-dark" do %>
           <div class="card-category">
             <div class="card-img">
-              <%= image_tag product&.photos&.first if product.photos.present? %>
+              <% if product.photos.attached? %>
+                <%= cl_image_tag(product.photos.first.key, width: 220, height: 220, class: "img-fluid rounded", alt: product.title) %>
+              <% else %>
+                <p>No image available</p>
+              <% end %>
             </div>
             <h4><%= product.title %></h4>
             <p><strong>Price:</strong> <%= number_to_currency(product.price, unit: "$") %></p>
 
-            <p><strong>Quality:</strong> <%= product.quality_score %></p>
+            <p><strong>Stock:</strong> <%= product.stock %></p>
           </div>
         <% end %>
       </div>
