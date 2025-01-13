@@ -1,31 +1,41 @@
-<div class="container">
-  <div class="row justify-content-center w-100">
-
-    <div class="col-md-12 col-lg-12 shadow-sm mt-4 p-4 rounded">
-      <h1 class="mb-3"><%= @product.title %></h1>
-
-      <p class="h4 price-color">Price: <%= number_to_currency(@product.price) %></p>
-      <div class="d-flex justify-align-items">
-        <div class="mb-4">
-        <% @product.photos.each do |photo| %>
-          <%= image_tag photo, class: "img-fluid mb-4 ms-3 me-3", width: 200, height: 200, alt: @product.title %>
-        <% end %>
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <!-- Left Column: Carousel -->
+    <div class="col-md-6 left-column">
+      <div id="product-slider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <% @product.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= 'active' if index.zero? %>">
+              <%= image_tag url_for(photo), class: "d-block w-100 rounded", alt: @product.title %>
+            </div>
+          <% end %>
         </div>
-        <div>
-          <p class="mb-4"><strong>Category:</strong> <%= @product.category %></p>
+        <button class="carousel-control-prev" type="button" data-bs-target="#product-slider" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#product-slider" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
 
-          <p class="mb-4"><strong>Description:</strong> <%= @product.description %></p>
-
-          <p class="mb-4"><strong>Stock:</strong> <%= @product.stock %> items</p>
-
-          <div class="d-flex justify-content-between mt-4">
-            <%= link_to "Back to Home", products_path, class: "btn btn-outline-primary" %>
-            <%= button_to "Buy Now", create_checkout_session_order_path(product_id: @product.id),
-                                     method: :post,
-                                     data: { turbo: false },
-                                     class: "btn btn-primary" %>
-          </div>
-        </div>
+    <!-- Right Column: Product Information -->
+    <div class="col-md-6 right-column">
+      <div class="product-description">
+        <h1 class="product-title"><%= @product.title %></h1>
+        <p class="product-price">Price: <%= number_to_currency(@product.price) %></p>
+        <p class="product-category"><strong>Category:</strong> <%= @product.category %></p>
+        <p class="product-description-text"><strong>Description:</strong> <%= @product.description %></p>
+        <p class="product-stock"><strong>Stock:</strong> <%= @product.stock %> items</p>
+      </div>
+      <div class="product-actions">
+        <%= button_to "Buy Now", create_checkout_session_order_path(product_id: @product.id),
+                     method: :post,
+                     data: { turbo: false },
+                     class: "btn btn-primary w-100 mb-3" %>
+        <%= link_to "Back to Home", products_path, class: "btn btn-outline-secondary w-100" %>
       </div>
     </div>
   </div>
