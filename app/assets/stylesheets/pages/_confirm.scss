@@ -21,6 +21,13 @@ html, body {
   display: flex;
 }
 
+.container-form {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  min-height: calc(72vh - 60px);
+}
+
 .left-column {
   position: relative;
   padding: 20px;

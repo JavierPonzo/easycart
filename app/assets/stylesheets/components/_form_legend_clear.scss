@@ -8,3 +8,13 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-control {
+  font-size: 1rem;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
