@@ -12,6 +12,15 @@ class ProductsController < ApplicationController
     end
   end
 
+  def suggestions
+    query = params[:query]
+    @products = Product.where("title ILIKE ?", "%#{query}%").limit(5)
+    suggestions = @products.map do |product|
+      {title: product.title, id: product.id}
+    end
+    render json: suggestions
+  end
+
   def show
 
   end

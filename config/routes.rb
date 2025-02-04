@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :orders, only: [:create, :new], shallow: true
+    collection do
+      get :suggestions
+    end
   end
 
   resources :orders, only: [:index, :show, :create] do
