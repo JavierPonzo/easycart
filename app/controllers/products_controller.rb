@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where("stock > ?", 0)
+    if params[:query].present?
+      @products = @products.where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @products = Product.where("stock > ?", 0)
+    end
   end
 
   def show
